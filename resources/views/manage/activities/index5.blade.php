@@ -98,7 +98,7 @@
                                             <tr>
                                                 <th>Sr.</th>
                                                 <th>Name</th>
-                                                <th>U_ID</th>
+                                                {{-- <th>U_ID</th> --}}
                                                 <th>Fact</th>
                                                 <th>Dept.</th>
                                                 <th>Page</th>
@@ -113,13 +113,13 @@
                                                 <tr>
                                                     <td class="text-left">{{ $loop->iteration }}</td>
                                                     <td>{{ $activity->profile->fname ?? null }}</td>
-                                                    <td>
+                                                    {{-- <td>
                                                         @if ($activity->profile)
                                                             {{ $activity->profile->unic_id ?? null }}
                                                         @else
                                                             Not Available
                                                         @endif
-                                                    </td>
+                                                    </td> --}}
                                                     <td>
                                                         @if ($activity->profile)
                                                             {{ $activity->profile->faculty ?? null }}
@@ -151,7 +151,7 @@
                                             <tr>
                                                 <th>Sr.</th>
                                                 <th>Name</th>
-                                                <th>U_ID</th>
+                                                {{-- <th>U_ID</th> --}}
                                                 <th>Fact</th>
                                                 <th>Dept.</th>
                                                 <th>Page</th>

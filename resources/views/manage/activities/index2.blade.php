@@ -198,40 +198,48 @@
                                 <table id="example14" class="display" style="min-width: 845px">
                                     <thead>
                                         <tr>
-                                            <th>Date</th>
+                                            <th>Sr N.</th>
+                                            
                                             <th>User Name</th>
-                                            <th>User ID</th>
-                                            <th>Unique ID</th>
-                                            <th>Total Time Spent</th>
+                                            <th>Fact</th>
+                                            <th>Dept.</th>
+                                            <th>Date</th>
+                                            
                                             <th>From Time</th>
                                             <th>To Time</th>
+                                            <th>Total Time Spent</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <?php foreach ($activitySummary as $activity): ?>
+                                        @foreach ($activitySummary as $activity)
                                         <tr>
-                                            <td>{{ $activity->date }}</td>
+                                            <td>{{ $loop->iteration }}</td>
+                                          
                                             <td>{{ $activity->profile->name ?? $activity->user->name }}</td>
-                                            <td>{{ $activity->local_user_id }}</td>
-                                            <td>{{ $activity->unic_id ?? null }}</td>
+                                            <th>{{ $activity->profile->faculty }}</th>
+                                            <th>{{ $activity->profile->department }}</th>
+                                            <td>{{ $activity->date }}</td>
+                                            {{--     --}}
+                                            {{-- <td>{{ $activity->unic_id ?? null }}</td> --}}
+                                           
+                                            <td>{{ $activity->from_time->format('H:i A') }}</td>
+                                            <td>{{ $activity->to_time->format('H:i A') }}</td>
                                             <td>{{ \Carbon\CarbonInterval::seconds($activity->total_time_spent)->cascade()->forHumans(['short' => true, 'parts' => 3]) }}</td>
-                                            <td>{{ $activity->from_time }}</td>
-                                            <td>{{ $activity->to_time }}</td>
                                         </tr>
-                                    <?php endforeach; ?>
+                                    @endforeach
                                     </tbody>
                                     <tfoot>
                                         <tr>
                                             <th>Sr.</th>
                                             <th>Name</th>
-                                            <th>U_ID</th>
+                                            {{-- <th>U_ID</th> --}}
                                             <th>Fact</th>
                                             <th>Dept.</th>
-                                            <th>Page</th>
-                                            <th>Date &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</th>
-                                            {{-- <th>From</th>
+                                        
+                                            <th>Date</th>
+                                            <th>From</th>
                                             <th>To</th>
-                                            <th>Spent</th> --}}
+                                            <th>Spent</th>
                                         </tr>
                                     </tfoot>
                                 </table>

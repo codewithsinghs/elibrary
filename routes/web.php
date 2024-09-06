@@ -63,8 +63,8 @@ Route::get('', [DashboardController::class, 'home'])->name('home')->middleware([
 Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
-    Route::get('/contact', [SupportController::class, 'create']);
-    Route::post('/contact', [SupportController::class, 'store']);
+    // Route::get('/contact', [SupporvtController::class, 'create']);
+    // Route::post('/contact', [SupportController::class, 'store']);
 
     Route::get('/support/attachment/{id}/download', [SupportTicketController::class, 'downloadAttachment'])->name('support.attachment.download');
     Route::get('/support', [SupportController::class, 'index'])->name('support.index');
@@ -213,4 +213,7 @@ Route::middleware(['auth', 'user.activity'])->group(function () {
     });
 });
 
+        // Include the custom routes
+       // require base_path('routes/custom.php');
+        require __DIR__ . '/custom.php';
 require __DIR__ . '/auth.php';

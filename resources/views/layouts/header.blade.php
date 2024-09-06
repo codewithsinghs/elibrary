@@ -706,7 +706,7 @@
                                                 class="nav-text">Home</span></a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="{{ url('/about') }}"><span
+                                        <a class="nav-link" href="{{ url('about-us') }}"><span
                                                 class="nav-text">About</span></a>
                                     </li>
                                     <li class="nav-item">
@@ -714,6 +714,7 @@
                                                 class="nav-text">Contact</span></a>
                                     </li>
                                     <!-- Add more links as needed -->
+                                    
                                 </ul>
                             </div>
                             <!--  -- Extra Menu End -->

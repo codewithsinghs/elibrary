@@ -30,7 +30,7 @@ use App\Http\Controllers\data\UserRolesController;
 */
 
 Route::get('/', function () {
-    return view('home');
+    return view('homes');
 });
 
 // Route::get('/dashboard', function () {

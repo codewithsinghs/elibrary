@@ -198,10 +198,11 @@
                                 <table id="example14" class="display" style="min-width: 845px">
                                     <thead>
                                         <tr>
+                                            <th>Sr N.</th>
                                             <th>Date</th>
                                             <th>User Name</th>
-                                            <th>User ID</th>
-                                            <th>Unique ID</th>
+                                            {{-- <th>User ID</th> --}}
+                                            {{-- <th>Unique ID</th> --}}
                                             <th>Total Time Spent</th>
                                             <th>Total Sessions</th>
                                             <th>From Time</th>
@@ -209,12 +210,13 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <?php foreach ($activitySummary as $activity): ?>
+                                        @foreach ($activitySummary as $activity)
                                         <tr>
+                                            <td>{{ $loop->iteration }}</td>
                                             <td>{{ $activity->date }}</td>
                                             <td>{{ $activity->profile->name ?? $activity->user->name }}</td>
-                                            <td>{{ $activity->local_user_id }}</td>
-                                            <td>{{ $activity->unic_id }}</td>
+                                            {{-- <td>{{ $activity->local_user_id }}</td>
+                                            <td>{{ $activity->unic_id }}</td> --}}
                                             <td>{{ \Carbon\CarbonInterval::seconds($activity->total_time_spent)->cascade()->forHumans(['short' => true, 'parts' => 3]) }}</td>
                                             <td>{{ $activity->total_sessions }} </td>
                                             <td> 
@@ -226,14 +228,15 @@
                                          
                                            </td>
                                         </tr>
-                                    <?php endforeach; ?>
+                                    @endforeach
                                     </tbody>
                                     <tfoot>
                                         <tr>
+                                            <th>Sr. N.</th>
                                             <th>Date</th>
                                             <th>User Name</th>
-                                            <th>User ID</th>
-                                            <th>Unique ID</th>
+                                            {{-- <th>User ID</th>
+                                            <th>Unique ID</th> --}}
                                             <th>Total Time Spent</th>
                                             <th>Total Sessions</th>
                                             <th>From Time</th>

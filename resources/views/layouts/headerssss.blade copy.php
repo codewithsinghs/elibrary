@@ -840,6 +840,9 @@
                                         <a class="nav-link" href="{{ url('/contact-us') }}"><span class="nav-text">Contact</span></a>
                                     </li>
                                     <!-- Add more links as needed -->
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{ url('/contactdrt-us') }}"><span class="nav-text">Contsaact</span></a>
+                                    </li>
                                 </ul>
                             </div> --}}
 

@@ -6,7 +6,7 @@
             <li class="d-xl-none d-lg-none d-md-none"><a href="{{ url('/') }}"><i class="bi bi-house"></i>
                     <span class="nav-text"> Home</span></a>
             </li>
-            <li class="d-xl-none d-lg-none d-md-none"><a href="{{ url('about') }}"><i
+            <li class="d-xl-none d-lg-none d-md-none"><a href="{{ url('about-us') }}"><i
                         class="bi bi-info-circle"></i>About</a></li>
             @auth
 

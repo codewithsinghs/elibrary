@@ -131,7 +131,7 @@
                                     <div class="col-md-4">
                                         <!-- Search button -->
                                         <button class="btn btn-primary" id="search_button">Search</button>
-                                        <button id="clear_filters_button">Clear Filters</button>
+                                        <button class="btn btn-secondary" id="clear_filters_button">Clear Filters</button>
                                     </div>
                                     {{-- <div class="col-md-3">
                                     <label for="fromDate">From:</label>
@@ -206,7 +206,7 @@
                                             <tr>
                                                 <th>Sr.</th>
                                                 <th>Name</th>
-                                                <th>U_ID</th>
+                                                {{-- <th>U_ID</th> --}}
                                                 <th>Fact</th>
                                                 <th>Dept.</th>
                                                 <th>Page</th>
@@ -221,13 +221,13 @@
                                                 <tr>
                                                     <td>{{ $loop->iteration }}</td>
                                                     <td>{{ $activity->profile->fname ?? null }}</td>
-                                                    <td>
+                                                    {{-- <td>
                                                         @if ($activity->profile)
                                                             {{ $activity->profile->unic_id ?? null }}
                                                         @else
                                                             Not Available
                                                         @endif
-                                                    </td>
+                                                    </td> --}}
                                                     <td>
                                                         @if ($activity->profile)
                                                             {{ $activity->profile->faculty ?? null }}
@@ -246,8 +246,8 @@
                                                             href="{{ $activity->url ?? null }}">{{ $activity->page_name ?? null }}</a>
                                                     </td>
                                                     <td>{{ $activity->start_time->format('d-m-Y') ?? null }}</td>
-                                                    <td>{{ $activity->start_time->format('H:i:s') ?? null }}</td>
-                                                    <td>{{ $activity->end_time->format('H:i:s') ?? null }}</td>
+                                                    <td>{{ $activity->start_time->format('H:i A') ?? null }}</td>
+                                                    <td>{{ $activity->end_time->format('H:i: A') ?? null }}</td>
                                                     <td>
                                                         {{-- @if ($activity->time_spent > 0)
                                                             @if (floor($activity->time_spent / 3600) > 0)
@@ -308,7 +308,7 @@
                                             <tr>
                                                 <th>Sr.</th>
                                                 <th>Name</th>
-                                                <th>U_ID</th>
+                                                {{-- <th>U_ID</th> --}}
                                                 <th>Fact</th>
                                                 <th>Dept.</th>
                                                 <th>Page</th>
@@ -845,7 +845,7 @@
 
                 var startDate = moment(startDateInput, 'D MMMM, YYYY');
                 var endDate = moment(endDateInput, 'D MMMM, YYYY');
-                var rowDate = moment(data[6], 'DD-MM-YYYY');
+                var rowDate = moment(data[5], 'DD-MM-YYYY');
 
                 // Check if the provided range is reverse
                 if (startDate.isAfter(endDate)) {

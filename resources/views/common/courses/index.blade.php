@@ -8,6 +8,14 @@
 
         <div class="container-fluid">
 
+            <!----------- Breachcrumb------------>
+            <div class="row page-titles">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item active"><a href="javascript:void(0)">Bootstrap</a></li>
+                    <li class="breadcrumb-item"><a href="javascript:void(0)">Accordion</a></li>
+                </ol>
+            </div>
+
             <!-- Section All Categories End -->
 
             <div class="widget-heading d-flex justify-content-between align-items-center">
@@ -82,7 +90,7 @@
                                         <div class="dlab-media">
                                             {{-- <img src="{{ asset('build/assets/images/courses/course1.jpg') }}"
                                                 alt=""> --}}
-                                                <img class="rounded-circle"
+                                                <img class=""
                                                             src="{{ $thumbnailExists ? Storage::url('courses/thumbnails/' . $course->image) : ($imageExists ? Storage::url('courses/' . $course->image) : ($course->image ? asset('storage/common/loading.gif') : asset('storage/common/no_image.png'))) }}"
                                                             >
                                         </div>

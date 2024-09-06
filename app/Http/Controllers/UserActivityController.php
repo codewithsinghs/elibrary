@@ -107,7 +107,10 @@ class UserActivityController extends Controller
         // Fetch all users along with their member profiles
         //$usersWithProfiles = User::with('profile')->get();
         // // Eager loading to avoid N+1 queries
-           $activities = UserActivity::with('profile')->get(); 
+        //    $activities = UserActivity::with('profile')->get(); 
+
+        $activities = UserActivity::with('profile')->orderBy('created_at', 'desc')->get();
+
 
         // $activities = UserActivity::with('profile')->latest()->paginate(10);
            
@@ -140,7 +143,7 @@ class UserActivityController extends Controller
             ])
             // ->join('profile', 'user_activities.local_user_id', '=', 'profile.user_id')
             ->groupBy('user_activities.local_user_id', 'user_activities.unic_id', 'date', 'user_activities.session_id')
-            ->orderBy('date', 'asc')
+            ->orderBy('date', 'desc')
             ->get();
 
         // Step 2: Display the organized data
@@ -165,7 +168,7 @@ class UserActivityController extends Controller
             UserActivity::raw('MAX(user_activities.created_at) as to_time')
         )
             ->groupBy('date', 'local_user_id', 'unic_id')
-            ->orderBy('date', 'asc')
+            ->orderBy(UserActivity::raw('MAX(user_activities.created_at)'), 'desc')  // Order by the latest created_at
             ->get();
         // Step 2: Display the organized data
         // echo "Date\t\tUser ID\t\tUnique ID\t\tTotal Time Spent\n";
@@ -184,7 +187,7 @@ class UserActivityController extends Controller
         // Fetch all users along with their member profiles
         //$usersWithProfiles = User::with('profile')->get();
         // // Eager loading to avoid N+1 queries
-           $activities = UserActivity::with('profile')->get(); 
+           $activities = UserActivity::with('profile')->orderBy('created_at', 'desc')->get(); 
 
         // $activities = UserActivity::with('profile')->latest()->paginate(10);
            
@@ -194,7 +197,7 @@ class UserActivityController extends Controller
 
     public function index5()
     {
-           $activities = UserActivity::with('profile')->get(); 
+           $activities = UserActivity::with('profile')->orderBy('created_at', 'desc')->get(); 
         return view('manage.activities.index5', compact('activities'));
     }
 }
