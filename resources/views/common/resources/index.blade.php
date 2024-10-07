@@ -3,6 +3,12 @@
 @section('headerTitle', 'Courses')
 @section('main-content')
 
+<style>
+    /* .courses-bx  */
+    .dlab-media img {
+        object-fit: contain!important;
+    }
+</style>
 
     <div class="content-body">
 

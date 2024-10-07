@@ -3,8 +3,7 @@
 @section('headerTitle', 'Courses')
 @section('main-content')
 
-
-    <div class="content-body">
+     <div class="content-body">
 
         <div class="container-fluid">
 
