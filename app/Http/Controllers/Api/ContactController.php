@@ -97,7 +97,7 @@ class ContactController extends Controller
         // Return a success response
         return response()->json([
             'success' => true,
-            'message' => 'Contact saved successfully',
+            'message' => "'Hey! We have recieved you message successfully'",
             'data' => $contact,
         ], 201);
     }
